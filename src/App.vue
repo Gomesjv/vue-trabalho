@@ -33,28 +33,29 @@ const error = computed(() => {
 </script>
 
 <template>
-
 <form @submit.prevent="a">
 
 <input   type="text" v-model="nome"  placeholder="Digite seu nome"  minlength="3" maxlength="20" required/>
 <input  type="email" v-model="email"  placeholder="Digite seu email" minlength="3" maxlength="20" required/>
-<input  type="number" v-model="idade"  placeholder="Digite sua idade" minlength="1" maxlength="3" required/>
+<input  type="date" v-model="idade"  minlength="1" maxlength="3" required/>
 <input type="password" v-model="senha"  placeholder="Digite sua senha" minlength="1" required/>
 <input type="password" v-model="SenhaConfirmacao"  placeholder="confirme sua senha" minlength="1"  required/>
 <input type="text" v-model="endereço"  placeholder="Digite seu endereço" required/>
 <input type="text" v-model="cidade"  placeholder="Digite sua cidade" required/>
-fbhfdhdfnhdsh
-<select v-model="estado">
-<label>
 
-</label>
+<input type="text" v-model="hobie"  placeholder="Digite seu hobie" required/>
+<input type="text" v-model="programcao"  placeholder="Digite suas linguagens de programção" required/>
+<textarea v-model="biografia
+" id="" cols="30" rows="10" />
+
+<select v-model="estado">
+
 
 {{ error }}
-<button type="submit">enviar</button>
-</select>
-  <label for="estado">Estado
+
+
+  <label for="estado">
   </label>
-  <select v-model="estado">
     <option value="AC">Acre</option>
     <option value="AL">Alagoas</option>
     <option value="AP">Amapa</option>
@@ -83,6 +84,7 @@ fbhfdhdfnhdsh
     <option value="SE">sergipe</option>
     <option value="TO">tocantis</option>
   </select>
+  <button type="submit">enviar</button>
 
 </form>
 <div v-if="mostrar">
@@ -92,15 +94,46 @@ fbhfdhdfnhdsh
 <p>sua senha cadastrada foi {{ senha }}</p>
 <p>sua senha foi confimada como {{ SenhaConfirmacao }}</p>
 <p>seu endereço foi cadastrado como  {{ endereço }}</p>
-<p>sua cidade foi cadastrada como {{ cidade }}</p>
-<p>sua senha foi confimada como {{ SenhaConfirmacao }}</p>
-<p>sua senha foi confimada como {{ SenhaConfirmacao }}</p>
-<p>sua senha foi confimada como {{ SenhaConfirmacao }}</p>
-<p>sua senha foi confimada como {{ SenhaConfirmacao }}</p>
+<p>sua cidade foi cadastrado como {{ cidade }}</p>
+<p>seu estado foi cadastrado como {{ estado }}</p>
+<p>swu hobie foi confimada como {{ hobie }}</p>
+<p>suas linguagens de programaçoes confimada como {{ programcao }}</p>
+<p>sua biografia foi confimada como {{ biografia }}</p>
+
 </div>
 </template>
 
 
 <style scoped>
+form{
+  display: grid;
+grid-template-columns: 1fr 1fr;
 
+}
+input{
+  border-radius: 10px;
+  border-color: black ;
+  width: 200px;
+  height: 30px;
+}
+::placeholder{
+  color: black;
+}
+button{
+  height: 30px;
+  width: 200px;
+  border-radius: 10px;
+
+}
+select{
+  border-radius:10px;
+}
+textarea{
+  border-radius: 10px;
+}
+div{
+  display: grid;
+  background-color: black;
+  border-radius: 10px;
+}
 </style>
