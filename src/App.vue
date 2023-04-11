@@ -43,7 +43,7 @@ const error = computed(() => {
 <input type="password" v-model="SenhaConfirmacao"  placeholder="confirme sua senha" minlength="1"  required/>
 <input type="text" v-model="endereço"  placeholder="Digite seu endereço" required/>
 <input type="text" v-model="cidade"  placeholder="Digite sua cidade" required/>
-
+fbhfdhdfnhdsh
 <select v-model="estado">
 <label>
 
