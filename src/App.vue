@@ -9,6 +9,9 @@ const senha = ref("")
 const SenhaConfirmacao = ref("")
 const endereço = ref("")
 const cidade = ref("")
+const biografia = ref("")
+const programacao = ref("")
+const estado = ref("")
 
 function a(e){
   if(senha.value === SenhaConfirmacao.value)
@@ -33,7 +36,27 @@ const error = computed(() => {
 </script>
 
 <template>
-<form @submit.prevent="a">
+  <div class="container">
+    <div class="resultado" v-if="mostrar">
+<h1>Seu cadastro</h1>
+
+<p>seu nome cadastrado foi {{ nome }}</p>
+<p>seu email cadastrado foi {{ email }}</p>
+<p>sua idade cadastrada foi {{ idade }}</p>
+<p>sua senha cadastrada foi {{ senha }}</p>
+<p>sua senha foi confimada como {{ SenhaConfirmacao }}</p>
+<p>seu endereço foi cadastrado como  {{ endereço }}</p>
+<p>sua cidade foi cadastrado como {{ cidade }}</p>
+<p>seu estado foi cadastrado como {{ estado }}</p>
+<p>seu hobie foi confimada como {{ hobie }}</p>
+<p>suas linguagens de programaçoes confimada como {{ programacao }}</p>
+<p>sua biografia foi confimada como {{ biografia }}</p>
+
+</div>
+
+<form class="login" @submit.prevent="a" v-else>
+
+  <h1>Tela de login</h1>
 
 <input   type="text" v-model="nome"  placeholder="Digite seu nome"  minlength="3" maxlength="20" required/>
 <input  type="email" v-model="email"  placeholder="Digite seu email" minlength="3" maxlength="20" required/>
@@ -45,10 +68,9 @@ const error = computed(() => {
 
 <input type="text" v-model="hobie"  placeholder="Digite seu hobie" required/>
 <input type="text" v-model="programcao"  placeholder="Digite suas linguagens de programção" required/>
-<textarea v-model="biografia
-" id="" cols="30" rows="10" />
+<textarea v-model="biografia" id="" cols="10" rows="10" required/>
 
-<select v-model="estado">
+<select v-model="estado" required>
 
 
 {{ error }}
@@ -87,53 +109,67 @@ const error = computed(() => {
   <button type="submit">enviar</button>
 
 </form>
-<div v-if="mostrar">
-<p>seu nome cadastrado foi {{ nome }}</p>
-<p>seu email cadastrado foi {{ email }}</p>
-<p>sua idade cadastrada foi {{ idade }}</p>
-<p>sua senha cadastrada foi {{ senha }}</p>
-<p>sua senha foi confimada como {{ SenhaConfirmacao }}</p>
-<p>seu endereço foi cadastrado como  {{ endereço }}</p>
-<p>sua cidade foi cadastrado como {{ cidade }}</p>
-<p>seu estado foi cadastrado como {{ estado }}</p>
-<p>swu hobie foi confimada como {{ hobie }}</p>
-<p>suas linguagens de programaçoes confimada como {{ programcao }}</p>
-<p>sua biografia foi confimada como {{ biografia }}</p>
 
-</div>
+  </div>
+  
 </template>
 
 
 <style scoped>
-form{
-  display: grid;
-grid-template-columns: 1fr 1fr;
 
+.container{
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+}
+.login{
+display: grid;
+grid-template-columns: 1fr;
+background-color: blue;
+height: 850px;
+width:400px;
+border-radius: 20px;
+justify-items: center;
 }
 input{
   border-radius: 10px;
   border-color: black ;
   width: 200px;
   height: 30px;
+  margin: 10px;
 }
 ::placeholder{
   color: black;
 }
 button{
   height: 30px;
-  width: 200px;
+  width: 210px;
   border-radius: 10px;
-
+ margin: 10px;
 }
-select{
-  border-radius:10px;
+#login{
+  background-color: black
+}
+h1{
+  text-align: center;
+  color: black;
 }
 textarea{
+width: 200px;
+height: 100px;
+border-radius: 10px;
+}
+select{
+  width: 210px;
+
   border-radius: 10px;
 }
-div{
-  display: grid;
-  background-color: black;
-  border-radius: 10px;
+.resultado{
+padding: 10px;
+  background-color: blue;
+  width:400px;
+  height: 500px;
+border-radius: 20px;
+color: black;
 }
 </style>
